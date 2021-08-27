@@ -73,27 +73,5 @@ public class ActorServicesImpl implements ActorService {
 
 	}
 
-	@Override
-	public ActorRest updateActor(Long id, final ActorRest actorRest) throws NetflixException {
-		
-		
-				
-			Actor actor= actorRepository.getById(id);
-			actor.setName(actorRest.getName());
-			actor.setLastName(actorRest.getLastName());
-			actor.setAge(actorRest.getAge());
-			actor.setNationality(actorRest.getNationality());
-			
-			try {
-				actorRepository.save(actor);
-			} catch (final Exception e) {
-				LOGGER.error(ExceptionConstants.INTERNAL_SERVER_ERROR, e);
-				throw new InternalServerErrorException(ExceptionConstants.INTERNAL_SERVER_ERROR);
-			}
-			
-			
-		return modelMapper.map(actor, ActorRest.class);
-	}
-
 	
 }

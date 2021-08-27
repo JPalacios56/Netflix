@@ -74,11 +74,11 @@ public class ActorServicesImpl implements ActorService {
 	}
 
 	@Override
-	public ActorRest updateActor(Long id, final ActorRest actorRest) throws NetflixException {
+	public ActorRest updateActor( final ActorRest actorRest) throws NetflixException {
 		
 		
 				
-			Actor actor= actorRepository.getById(id);
+			Actor actor= new Actor();
 			actor.setName(actorRest.getName());
 			actor.setLastName(actorRest.getLastName());
 			actor.setAge(actorRest.getAge());
