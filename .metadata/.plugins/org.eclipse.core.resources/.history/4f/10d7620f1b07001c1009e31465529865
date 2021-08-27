@@ -1,0 +1,12 @@
+package com.everis.d4i.tutorial.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name= "ACTORS")
+public class Actors implements Serializable {
+
+}
