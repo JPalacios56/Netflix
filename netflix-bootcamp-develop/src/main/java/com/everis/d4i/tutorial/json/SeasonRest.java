@@ -12,6 +12,7 @@ public class SeasonRest implements Serializable {
 	private Long id;
 	private short number;
 	private String name;
+	private TvShowRest tvShow;
 
 	public Long getId() {
 		return id;
@@ -36,5 +37,15 @@ public class SeasonRest implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getTvShow() {
+		return tvShow.getName();
+	}
+
+	public void setTvShow(TvShowRest tvShow) {
+		this.tvShow = tvShow;
+	}
+	
+	
 
 }

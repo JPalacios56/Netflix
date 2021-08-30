@@ -18,4 +18,6 @@ public interface TvShowController {
 	NetflixResponse<TvShowRest> addCategoryToTvShowRest(Long id_TvShow, Long id_Category) throws NetflixException;
 
 	NetflixResponse<TvShowRest> deleteTvShow(Long id_TvShow) throws NetflixException;
+	
+	
 }

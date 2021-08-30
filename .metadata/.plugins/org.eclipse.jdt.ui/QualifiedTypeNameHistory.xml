@@ -6,7 +6,6 @@
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.entities.TvShow"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="javax.persistence.JoinTable"/>
     <fullyQualifiedTypeName name="javax.persistence.JoinColumns"/>
     <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
@@ -34,9 +33,10 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseStatus"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.exceptions.NetflixException"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.repositories.ActorRepository"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.utils.constants.RestConstants"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.entities.Actor"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.responses.NetflixResponse"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.utils.constants.RestConstants"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 </qualifiedTypeNameHistroy>

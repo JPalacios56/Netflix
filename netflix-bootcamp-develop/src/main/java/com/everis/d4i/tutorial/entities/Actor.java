@@ -1,12 +1,16 @@
 package com.everis.d4i.tutorial.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +35,14 @@ public class Actor implements Serializable {
 	
 	@Column(name = "NATIONALITY")
 	private String nationality;
+	
+	@JoinTable(
+			name = "actors_chapters",
+			joinColumns= @JoinColumn(name= "ID_ACTOR", nullable = false),
+			inverseJoinColumns = @JoinColumn(name= "ID_CHAPTER", nullable = false)
+		)
+	@ManyToMany
+	private List<Chapter> chapters;
 
 	public Long getId() {
 		return id;
@@ -71,6 +83,15 @@ public class Actor implements Serializable {
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
 	}
+
+	public List<Chapter> getChapters() {
+		return chapters;
+	}
+
+	public void setChapters(List<Chapter> chapters) {
+		this.chapters = chapters;
+	}
+	
 	
 	
 	

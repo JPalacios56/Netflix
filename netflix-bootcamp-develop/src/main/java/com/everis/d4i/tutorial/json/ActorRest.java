@@ -1,6 +1,7 @@
 package com.everis.d4i.tutorial.json;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -14,6 +15,9 @@ public class ActorRest implements Serializable {
 	private String lastName;
 	private Short age;
 	private String nationality;
+	private List <ChapterRest> chapters;
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -52,6 +56,13 @@ public class ActorRest implements Serializable {
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
 	}
+	public List<ChapterRest> getChapters() {
+		return chapters;
+	}
+	public void setChapters(List<ChapterRest> chapters) {
+		this.chapters = chapters;
+	}
+	
 
 	
 }
