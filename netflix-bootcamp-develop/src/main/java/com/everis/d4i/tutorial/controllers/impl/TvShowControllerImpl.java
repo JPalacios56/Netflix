@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.everis.d4i.tutorial.controllers.TvShowController;
 import com.everis.d4i.tutorial.entities.TvShow;
 import com.everis.d4i.tutorial.exceptions.NetflixException;
+import com.everis.d4i.tutorial.json.AwardTvShowRest;
 import com.everis.d4i.tutorial.json.CategoryRest;
 import com.everis.d4i.tutorial.json.TvShowRest;
 import com.everis.d4i.tutorial.responses.NetflixResponse;
@@ -78,6 +79,15 @@ public class TvShowControllerImpl implements TvShowController {
 		
 		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
 				tvShowService.deleteTvShow(id));
+	}
+
+	@Override
+	@ResponseStatus(HttpStatus.OK)
+	@GetMapping(value= "/Awards/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public NetflixResponse<List<AwardTvShowRest>> getAwards(@PathVariable Long id) throws NetflixException {
+		
+		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
+				tvShowService.getAwards(id));
 	}
 
 

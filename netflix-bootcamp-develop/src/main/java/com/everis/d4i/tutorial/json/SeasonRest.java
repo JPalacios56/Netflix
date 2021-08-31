@@ -38,8 +38,8 @@ public class SeasonRest implements Serializable {
 		this.name = name;
 	}
 
-	public String getTvShow() {
-		return tvShow.getName();
+	public TvShowRest getTvShow() {
+		return tvShow;
 	}
 
 	public void setTvShow(TvShowRest tvShow) {

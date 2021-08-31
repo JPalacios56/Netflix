@@ -3,6 +3,7 @@ package com.everis.d4i.tutorial.services;
 import java.util.List;
 
 import com.everis.d4i.tutorial.exceptions.NetflixException;
+import com.everis.d4i.tutorial.json.AwardTvShowRest;
 import com.everis.d4i.tutorial.json.TvShowRest;
 
 public interface TvShowService {
@@ -17,6 +18,7 @@ public interface TvShowService {
 	
 	TvShowRest deleteTvShow(Long idTvShow) throws NetflixException;
 	
+	List<AwardTvShowRest> getAwards(Long idTvshow) throws NetflixException; 
 	
 	
 }

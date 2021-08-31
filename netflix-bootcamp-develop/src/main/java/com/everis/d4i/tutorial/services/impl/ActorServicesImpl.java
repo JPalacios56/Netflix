@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
 
-import org.hibernate.internal.build.AllowSysOut;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,15 +14,11 @@ import org.springframework.stereotype.Service;
 
 import com.everis.d4i.tutorial.entities.Actor;
 import com.everis.d4i.tutorial.entities.Chapter;
-import com.everis.d4i.tutorial.entities.Season;
-import com.everis.d4i.tutorial.entities.TvShow;
 import com.everis.d4i.tutorial.exceptions.InternalServerErrorException;
 import com.everis.d4i.tutorial.exceptions.NetflixException;
 import com.everis.d4i.tutorial.exceptions.NotFoundException;
 import com.everis.d4i.tutorial.json.ActorRest;
-import com.everis.d4i.tutorial.json.CategoryRest;
 import com.everis.d4i.tutorial.json.ChapterRest;
-import com.everis.d4i.tutorial.json.TvShowRest;
 import com.everis.d4i.tutorial.repositories.ActorRepository;
 import com.everis.d4i.tutorial.repositories.ChapterRepository;
 import com.everis.d4i.tutorial.services.ActorService;
@@ -122,28 +117,18 @@ public class ActorServicesImpl implements ActorService {
 	public ActorRest getChapters(Long id) throws NetflixException {
 	
 		try {		
-			List <TvShowRest> tvShowRests = new ArrayList<>(); 
 			List <ChapterRest> chapterRests = new ArrayList<>(); 
 			ActorRest actorRest= new ActorRest();
 			
 			Actor actor = actorRepository.getById(id);
 			List<Chapter> chapters = actor.getChapters();
 			
-			
-			int aux= chapters.size();
-			
-			for(int i = 0; i<aux; i++) {
+			for(int i = 0; i<chapters.size(); i++) {
 			
 			ChapterRest chapterRest = modelMapper.map(chapters.get(i), ChapterRest.class);
 			chapterRests.add(chapterRest);
 				
-			Season season = chapters.get(i).getSeason();
-			TvShow tvShow = season.getTvShow();
-			TvShowRest tvShowRest=modelMapper.map(tvShow, TvShowRest.class);
-			tvShowRest.setName(tvShow.getName());
-			tvShowRests.add(tvShowRest);
 			}	
-			
 			actorRest.setChapters(chapterRests);
 			return actorRest;
 			

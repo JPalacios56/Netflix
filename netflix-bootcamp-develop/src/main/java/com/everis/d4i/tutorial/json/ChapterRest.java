@@ -48,11 +48,8 @@ public class ChapterRest implements Serializable {
 		this.duration = duration;
 	}
 
-	public String getSeasonName() {
-		return season.getName();
-	}
-	public String getTvShow() {
-		return season.getTvShow();
+	public SeasonRest getSeason() {
+		return season;
 	}
 
 	public void setSeason(SeasonRest season) {
