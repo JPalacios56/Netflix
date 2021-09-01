@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun Test1" project="netflix-bootcamp-develop" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="testUnitarios.Test1" time="0.018" displayname="Test1" uniqueid="[engine:junit-jupiter]/[class:testUnitarios.Test1]">
+    <testcase name="test" classname="testUnitarios.Test1" time="0.018" displayname="test()" uniqueid="[engine:junit-jupiter]/[class:testUnitarios.Test1]/[method:test()]"/>
+  </testsuite>
+</testrun>

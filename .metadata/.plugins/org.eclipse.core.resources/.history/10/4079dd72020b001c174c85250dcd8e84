@@ -1,0 +1,14 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.modelmapper.internal.util.Assert;
+
+class Test1 {
+
+	@Test
+	public void mostrarHolaMundo() {
+		int aux= 1;
+		Assert.assertEquals("1",1)
+	}
+
+}

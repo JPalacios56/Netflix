@@ -1,0 +1,34 @@
+package com.everis.d4i.tutorial.services;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.everis.d4i.tutorial.exceptions.NetflixException;
+
+class TvShowServiceTest {
+
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	@Autowired
+	TvShowService tvShowService;
+	
+
+	@Test
+	public void test() throws NetflixException{
+		
+	long id = 1;	
+	String aux= "Juego de tronos";
+	System.out.println(tvShowService.toString());
+
+	//String nametv = tvShowService.getTvShowById(id).getName();
+
+		assertEquals("Juego de tronos",aux);
+		
+	}
+
+}

@@ -1,0 +1,31 @@
+package testUnitarios;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.everis.d4i.tutorial.exceptions.NetflixException;
+import com.everis.d4i.tutorial.json.TvShowRest;
+import com.everis.d4i.tutorial.services.TvShowService;
+
+
+@SpringBootTest
+class Test1 {
+
+	
+	@Autowired
+	TvShowService tvShowServices;
+	
+	@Test
+	public void test() throws NetflixException {
+		
+		TvShowRest tvShowRest=tvShowServices.getTvShowById((long) 1);
+	
+		System.out.println(tvShowRest.getName());
+		assertEquals("Jose",tvShowRest.getName());
+		
+	}
+
+}

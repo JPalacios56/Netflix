@@ -71,9 +71,9 @@ public class TvShowControllerImpl implements TvShowController {
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@DeleteMapping(value = RestConstants.RESOURCE_ID, produces = MediaType.APPLICATION_JSON_VALUE)
-	public NetflixResponse<TvShowRest> deleteTvShow(@PathVariable Long id) throws NetflixException {
+	public NetflixResponse deleteTvShow(@PathVariable Long id) throws NetflixException {
 		
-		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
+		return new NetflixResponse(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
 				tvShowService.deleteTvShow(id));
 	}
 
