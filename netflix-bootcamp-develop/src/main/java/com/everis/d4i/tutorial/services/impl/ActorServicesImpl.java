@@ -2,7 +2,6 @@ package com.everis.d4i.tutorial.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -17,6 +16,7 @@ import com.everis.d4i.tutorial.entities.Chapter;
 import com.everis.d4i.tutorial.exceptions.InternalServerErrorException;
 import com.everis.d4i.tutorial.exceptions.NetflixException;
 import com.everis.d4i.tutorial.exceptions.NotFoundException;
+import com.everis.d4i.tutorial.json.ActorDataRest;
 import com.everis.d4i.tutorial.json.ActorRest;
 import com.everis.d4i.tutorial.json.ChapterRest;
 import com.everis.d4i.tutorial.repositories.ActorRepository;
@@ -37,16 +37,28 @@ public class ActorServicesImpl implements ActorService {
 	ChapterRepository chapterRepository;
 
 	private ModelMapper modelMapper = new ModelMapper();
-	
+
 	@Override
-	public List<ActorRest> getAllActors() throws NetflixException {
+	public List<ActorDataRest> getAllActorsData() throws NetflixException {
+		
+		List<ActorDataRest>actorDataRests= new ArrayList();
+		List<Actor> actors=actorRepository.findAll();
+		
+		for(int i=0; i<actors.size();i++) {
+			ActorDataRest aux= new ActorDataRest();
+			aux.setId(actors.get(i).getId());
+			aux.setName(actors.get(i).getName());
+			aux.setLastName(actors.get(i).getLastName());
+			aux.setAge(actors.get(i).getAge());
+			aux.setNationality(actors.get(i).getNationality());
+		
+			actorDataRests.add(aux);
+		}
 
 		
-		return actorRepository.findAll().stream().map(actor -> modelMapper.map(actor, ActorRest.class))
-				.collect(Collectors.toList());
-	
+		return actorDataRests;
 	}
-
+	
 	@Override
 	public ActorRest getActor(Long id) throws NetflixException {
 
@@ -79,15 +91,15 @@ public class ActorServicesImpl implements ActorService {
 	}
 
 	@Override
-	public ActorRest updateActor(Long id, final ActorRest actorRest) throws NetflixException {
+	public ActorDataRest updateActor(Long id, final ActorDataRest actorDataRest) throws NetflixException {
 		
 		
 				
 			Actor actor= actorRepository.getById(id);
-			actor.setName(actorRest.getName());
-			actor.setLastName(actorRest.getLastName());
-			actor.setAge(actorRest.getAge());
-			actor.setNationality(actorRest.getNationality());
+			actor.setName(actorDataRest.getName());
+			actor.setLastName(actorDataRest.getLastName());
+			actor.setAge(actorDataRest.getAge());
+			actor.setNationality(actorDataRest.getNationality());
 			
 			try {
 				actorRepository.save(actor);
@@ -97,7 +109,7 @@ public class ActorServicesImpl implements ActorService {
 			}
 			
 			
-		return modelMapper.map(actor, ActorRest.class);
+		return modelMapper.map(actor, ActorDataRest.class);
 	}
 
 	@Override
@@ -137,6 +149,10 @@ public class ActorServicesImpl implements ActorService {
 			throw new InternalServerErrorException(ExceptionConstants.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	
+
+	
 
 	
 }

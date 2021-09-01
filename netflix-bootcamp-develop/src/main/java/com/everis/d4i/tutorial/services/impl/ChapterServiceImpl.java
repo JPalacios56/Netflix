@@ -43,11 +43,9 @@ public class ChapterServiceImpl implements ChapterService {
 	@Override
 	public ChapterRest updateChapterName(Long chapterId, String name) throws NetflixException {
 		
-		//Buscamos el capitulo por su ID
+
 		Optional<Chapter> chapter = chapterRepository.findById(chapterId);
-		
-		//Creamos la nueva entidad que queremos actualizar y guardamos
-		//para que se persistan los cambios
+	
 		Chapter chapterNew= chapter.get();
 		chapterNew.setName(name);
 		chapterRepository.save(chapterNew);

@@ -12,17 +12,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.everis.d4i.tutorial.controllers.TvShowController;
-import com.everis.d4i.tutorial.entities.TvShow;
 import com.everis.d4i.tutorial.exceptions.NetflixException;
 import com.everis.d4i.tutorial.json.AwardTvShowRest;
-import com.everis.d4i.tutorial.json.CategoryRest;
 import com.everis.d4i.tutorial.json.TvShowRest;
 import com.everis.d4i.tutorial.responses.NetflixResponse;
 import com.everis.d4i.tutorial.services.TvShowService;

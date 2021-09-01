@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.everis.d4i.tutorial.controllers.ActorController;
 import com.everis.d4i.tutorial.exceptions.NetflixException;
+import com.everis.d4i.tutorial.json.ActorDataRest;
 import com.everis.d4i.tutorial.json.ActorRest;
 import com.everis.d4i.tutorial.responses.NetflixResponse;
 import com.everis.d4i.tutorial.services.ActorService;
@@ -40,10 +41,10 @@ public class ActorControllerImpl implements ActorController {
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public NetflixResponse<List<ActorRest>> getActors() throws NetflixException {
+	public NetflixResponse<List<ActorDataRest>> getActors() throws NetflixException {
 
 		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
-				actorService.getAllActors());
+				actorService.getAllActorsData());
 	}
 
 
@@ -70,11 +71,11 @@ public class ActorControllerImpl implements ActorController {
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@PutMapping(value = RestConstants.RESOURCE_ID,produces = MediaType.APPLICATION_JSON_VALUE)
-	public NetflixResponse<ActorRest> updateActor(@PathVariable Long id,@ApiParam(value = RestConstants.PARAMETER_ACTOR, required = true) @RequestBody @Valid final ActorRest actorRest) 
+	public NetflixResponse<ActorDataRest> updateActor(@PathVariable Long id,@ApiParam(value = RestConstants.PARAMETER_ACTOR, required = true) @RequestBody @Valid final ActorDataRest actorDataRest) 
 			throws NetflixException {
 		
 		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
-				actorService.updateActor(id,actorRest));
+				actorService.updateActor(id,actorDataRest));
 	}
 
 
