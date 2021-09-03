@@ -60,11 +60,11 @@ public class ActorControllerImpl implements ActorController {
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public NetflixResponse<ActorRest> addActor(@ApiParam(value = RestConstants.PARAMETER_ACTOR, required = true) @RequestBody @Valid final ActorRest actorRest)
+	public NetflixResponse<ActorDataRest> addActor(@ApiParam(value = RestConstants.PARAMETER_ACTOR, required = true) @RequestBody @Valid final ActorDataRest actorDataRest)
 			throws NetflixException {
 		
 		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
-				actorService.addActor(actorRest));
+				actorService.addActor(actorDataRest));
 	}
 
 

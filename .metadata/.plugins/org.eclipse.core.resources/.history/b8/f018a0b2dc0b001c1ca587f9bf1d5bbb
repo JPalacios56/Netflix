@@ -1,0 +1,33 @@
+package com.everis.d4i.tutorial.services;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import com.everis.d4i.tutorial.exceptions.NetflixException;
+import com.everis.d4i.tutorial.repositories.TvShowRepository;
+
+
+
+class TvShowServiceTest {
+
+	@MockBean
+	TvShowRepository tvShowRepository;
+	
+	@InjectMocks
+	TvShowService tvShowService;
+		
+	@Test
+	public void test() throws NetflixException{
+		
+	long id = 1;	
+	String espectResult= "Juego de tronos";
+	String nametv = tvShowService.getTvShowById(id).getName();
+
+	assertEquals(espectResult,nametv);
+	
+	}
+
+}

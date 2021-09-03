@@ -12,7 +12,7 @@ public interface ActorService {
 	
 	ActorRest getActor(Long id) throws NetflixException;
 
-	ActorRest addActor(ActorRest actorRest)throws NetflixException;
+	ActorDataRest addActor(ActorDataRest actorDataRest)throws NetflixException;
 	
 	ActorDataRest updateActor(Long id, ActorDataRest actorDataRest)throws NetflixException;
 	

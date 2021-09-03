@@ -1,0 +1,39 @@
+package testUnitarios;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.aspectj.lang.annotation.Before;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
+
+import com.everis.d4i.tutorial.exceptions.NetflixException;
+import com.everis.d4i.tutorial.json.TvShowRest;
+import com.everis.d4i.tutorial.repositories.TvShowRepository;
+import com.everis.d4i.tutorial.services.ActorService;
+import com.everis.d4i.tutorial.services.TvShowService;
+
+
+class Test1 {
+
+	@MockBean
+	TvShowRepository tvShowRepository;
+	
+	@InjectMocks
+	TvShowService tvShowService;
+		
+	@Test
+	public void test() throws NetflixException{
+		
+	long id = 1;	
+	String espectResult= "Juego de tronos";
+	String nametv = tvShowService.getTvShowById(id).getName();
+
+	assertEquals(espectResult,nametv);
+		
+	}
+
+}

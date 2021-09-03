@@ -1,0 +1,39 @@
+package com.everis.d4i.tutorial.services;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class TvShowServiceTest2 {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testGetTvShowById() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testUpdateTvShow() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testAddCategoryToTvShow() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testDeleteTvShow() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetAwards() {
+		fail("Not yet implemented");
+	}
+
+}

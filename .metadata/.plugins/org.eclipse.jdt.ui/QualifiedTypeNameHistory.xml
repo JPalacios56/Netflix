@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.TvShowService"/>
     <fullyQualifiedTypeName name="javax.validation.Valid"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.utils.constants.CommonConstants"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
@@ -14,7 +13,6 @@
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.repositories.CategoryRepository"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.json.CategoryRest"/>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.json.TvShowRest"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="javax.persistence.Table"/>
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
@@ -24,8 +22,6 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.json.ActorRest"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.controllers.ActorController"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.ActorService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseStatus"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.exceptions.NetflixException"/>
@@ -45,4 +41,21 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.json.ChapterRest"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.entities.Season"/>
+    <fullyQualifiedTypeName name="org.modelmapper.internal.util.Assert"/>
+    <fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringRunner"/>
+    <fullyQualifiedTypeName name="org.springframework.test.context.ContextConfiguration"/>
+    <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Before"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.json.TvShowRest"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.ActorService"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.controllers.TvShowController"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.TvShowService"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
+    <fullyQualifiedTypeName name="org.mockito.Mock"/>
+    <fullyQualifiedTypeName name="org.mockito.MockitoAnnotations"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.impl.TvShowServiceImpl"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.mock.mockito.MockBean"/>
+    <fullyQualifiedTypeName name="org.mockito.InjectMocks"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.test.context.SpringBootTest"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.repositories.TvShowRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 </qualifiedTypeNameHistroy>

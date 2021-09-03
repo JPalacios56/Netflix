@@ -70,13 +70,13 @@ public class ActorServicesImpl implements ActorService {
 	}
 
 	@Override
-	public ActorRest addActor(final ActorRest actorRest) throws NetflixException {
+	public ActorDataRest addActor(final ActorDataRest actorDataRest) throws NetflixException {
 			
 			Actor actor= new Actor();
-			actor.setName(actorRest.getName());
-			actor.setLastName(actorRest.getLastName());
-			actor.setAge(actorRest.getAge());
-			actor.setNationality(actorRest.getNationality());
+			actor.setName(actorDataRest.getName());
+			actor.setLastName(actorDataRest.getLastName());
+			actor.setAge(actorDataRest.getAge());
+			actor.setNationality(actorDataRest.getNationality());
 			
 			try {
 				actorRepository.save(actor);
@@ -86,7 +86,7 @@ public class ActorServicesImpl implements ActorService {
 			}
 			
 			
-		return modelMapper.map(actor, ActorRest.class);
+		return modelMapper.map(actor, ActorDataRest.class);
 
 	}
 
