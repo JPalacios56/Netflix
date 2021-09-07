@@ -36,6 +36,22 @@ public class Category implements Serializable {
 	)
 	@ManyToMany
 	private List<TvShow> tvShows;
+	
+	public Category() {
+		
+	}
+
+	public Category(long id, String name) {
+
+		this.id=id;
+		this.name=name;
+	}
+
+	public Category(long id, String name, List<TvShow> list) {
+		this.id= id;
+		this.name= name;
+		this.tvShows=list;
+	}
 
 	public Long getId() {
 		return id;

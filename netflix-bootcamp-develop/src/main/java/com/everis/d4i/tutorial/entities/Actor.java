@@ -44,6 +44,18 @@ public class Actor implements Serializable {
 	@ManyToMany
 	private List<Chapter> chapters;
 
+	public Actor(long id, String name, String lastName, short age, String nationality) {
+		this.id=id;
+		this.name=name;
+		this.lastName=lastName;
+		this.age=age;
+		this.nationality=nationality;
+	}
+
+	public Actor() {
+		
+	}
+
 	public Long getId() {
 		return id;
 	}

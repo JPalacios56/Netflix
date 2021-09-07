@@ -1,5 +1,0 @@
-package com.everis.d4i.tutorial.repositories;
-
-public interface ActorRepository {
-
-}

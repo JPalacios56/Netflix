@@ -27,9 +27,6 @@ class TvShowServiceImplTest {
 	@Test
 	public void test() throws NetflixException {
 		
-		long id= 1;
-		String name = "Juego de tronos";
-		String nameTv=tvShowService.getTvShowById(id).getName();
-		assertEquals(name, nameTv);
+	
 	}
 }

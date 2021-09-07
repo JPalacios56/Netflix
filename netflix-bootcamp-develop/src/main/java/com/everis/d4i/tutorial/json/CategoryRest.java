@@ -12,6 +12,12 @@ public class CategoryRest implements Serializable {
 	private Long id;
 	private String name;
 
+	public CategoryRest(long l, String string) {
+	}
+
+	public CategoryRest() {
+	}
+
 	public Long getId() {
 		return id;
 	}

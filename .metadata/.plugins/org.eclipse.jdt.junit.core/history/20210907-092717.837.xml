@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CategoryServiceImplTest" project="netflix-bootcamp-develop" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.everis.d4i.tutorial.services.impl.CategoryServiceImplTest" incomplete="true" displayname="CategoryServiceImplTest" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.services.impl.CategoryServiceImplTest]">
+    <testcase name="testGetCategories" classname="com.everis.d4i.tutorial.services.impl.CategoryServiceImplTest" time="0.13" displayname="testGetCategories()" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.services.impl.CategoryServiceImplTest]/[method:testGetCategories()]"/>
+    <testcase name="testCreateCategories" classname="com.everis.d4i.tutorial.services.impl.CategoryServiceImplTest" incomplete="true" displayname="testCreateCategories()" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.services.impl.CategoryServiceImplTest]/[method:testCreateCategories()]"/>
+  </testsuite>
+</testrun>

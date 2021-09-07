@@ -1,7 +1,0 @@
-package com.everis.d4i.tutorial.json;
-
-import java.io.Serializable;
-
-public class ActorRest implements Serializable {
-
-}

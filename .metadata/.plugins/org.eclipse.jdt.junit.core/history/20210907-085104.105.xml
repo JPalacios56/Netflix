@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ActorServicesImplTest" project="netflix-bootcamp-develop" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.everis.d4i.tutorial.services.impl.ActorServicesImplTest" time="0.069" displayname="ActorServicesImplTest" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.services.impl.ActorServicesImplTest]">
+    <testcase name="testGetActors" classname="com.everis.d4i.tutorial.services.impl.ActorServicesImplTest" time="0.069" displayname="testGetActors()" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.services.impl.ActorServicesImplTest]/[method:testGetActors()]"/>
+  </testsuite>
+</testrun>
