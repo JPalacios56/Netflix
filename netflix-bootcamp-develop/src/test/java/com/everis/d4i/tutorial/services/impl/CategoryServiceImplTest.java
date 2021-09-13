@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-import org.aspectj.lang.annotation.Before;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,16 +24,11 @@ import com.everis.d4i.tutorial.repositories.CategoryRepository;
 @SpringBootTest
 class CategoryServiceImplTest {
 
-
 	@Mock
 	private CategoryRepository categoryRepository;
 	
 	@InjectMocks
 	private CategoryServiceImpl categoryService;
-	
-	
-	
-
 
 
 	@Test
@@ -52,22 +46,18 @@ class CategoryServiceImplTest {
 	
 	@Test
 	void testCreateCategories() throws NetflixException{
-		CategoryRest categorieRest= new CategoryRest();
-		categorieRest.setName("Animacion");
 		
-		Category categorie = new Category();
-		categorie.setName(categorieRest.getName());
+		CategoryRest categoryRest = new CategoryRest();
+		categoryRest.setName("Animacion");
 		
-		Category categorieExpect = new Category();
-		categorieExpect.setId(1L);
-		categorieExpect.setName(categorieRest.getName());
+		Category category= new Category();
+		category.setName("Animacion");
+				
+		Mockito.when(categoryRepository.save(Mockito.any(Category.class)))
+		.thenReturn(category);
 		
-		Mockito.when(categoryRepository.save(categorie)).thenReturn(categorieExpect);
-		CategoryRest categorieRest2 = categoryService.createCategories(categorieRest);
-		
-		assertEquals(categorieRest, categorieRest2);
-		
-	
+		CategoryRest categoryAdd = categoryService.createCategories(categoryRest);
+		assertEquals(categoryAdd.getName(), "Animacion");
 	}
 
 }

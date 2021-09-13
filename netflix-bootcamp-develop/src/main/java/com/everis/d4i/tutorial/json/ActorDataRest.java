@@ -12,6 +12,15 @@ public class ActorDataRest {
 	private String nationality;
 	
 	
+	public ActorDataRest(long id, String name, String lastName) {
+		
+		this.id=id;
+		this.name=name;
+		this.lastName=lastName;
+	}
+	public ActorDataRest() {
+		
+	}
 	public Long getId() {
 		return id;
 	}

@@ -33,30 +33,29 @@ public class ActorServicesImpl implements ActorService {
 	@Autowired
 	ActorRepository actorRepository;
 	
-	@Autowired
-	ChapterRepository chapterRepository;
 
 	private ModelMapper modelMapper = new ModelMapper();
 
 	@Override
 	public List<ActorDataRest> getAllActorsData() throws NetflixException {
 		
-		List<ActorDataRest>actorDataRests= new ArrayList();
+		List<ActorDataRest>actorDataRest= new ArrayList<ActorDataRest>();
 		List<Actor> actors=actorRepository.findAll();
 		
 		for(int i=0; i<actors.size();i++) {
 			ActorDataRest aux= new ActorDataRest();
+			
 			aux.setId(actors.get(i).getId());
 			aux.setName(actors.get(i).getName());
 			aux.setLastName(actors.get(i).getLastName());
 			aux.setAge(actors.get(i).getAge());
 			aux.setNationality(actors.get(i).getNationality());
 		
-			actorDataRests.add(aux);
+			actorDataRest.add(aux);
 		}
 
 		
-		return actorDataRests;
+		return actorDataRest;
 	}
 	
 	@Override

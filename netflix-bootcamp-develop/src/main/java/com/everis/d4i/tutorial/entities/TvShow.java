@@ -60,6 +60,7 @@ public class TvShow implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "tvShow")
 	private List<Award>awards;
 
+
 	public Long getId() {
 		return id;
 	}

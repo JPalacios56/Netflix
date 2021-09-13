@@ -54,7 +54,7 @@ public class TvShowServiceImpl implements TvShowService {
 
 			TvShow tvShowNew = tvShow.get();
 			tvShowNew.setName(name);
-			tvShowRepository.save(tvShowNew);
+			tvShowNew = tvShowRepository.save(tvShowNew);
 		}
 
 		try {

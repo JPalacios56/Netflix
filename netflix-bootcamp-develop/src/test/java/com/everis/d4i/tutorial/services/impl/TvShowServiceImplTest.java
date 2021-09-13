@@ -1,32 +1,48 @@
 package com.everis.d4i.tutorial.services.impl;
 
-import static org.junit.Assert.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import com.everis.d4i.tutorial.entities.TvShow;
 import com.everis.d4i.tutorial.exceptions.NetflixException;
+import com.everis.d4i.tutorial.json.TvShowRest;
 import com.everis.d4i.tutorial.repositories.TvShowRepository;
-import com.everis.d4i.tutorial.services.TvShowService;
 
+@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class TvShowServiceImplTest {
 
-	@Autowired
-	TvShowService tvShowService;
-	
+
+	@Mock
 	TvShowRepository tvShowRepository;
 	
-	@Before
-	public void setUp() throws Exception {
-		
-	}
+	@InjectMocks
+	TvShowServiceImpl tvShowService;
+	
+
+	
 
 	@Test
-	public void test() throws NetflixException {
+	void getTvShowById() throws NetflixException {
 		
+		TvShow tvShow = new TvShow();
+		tvShow.setName("Serie1");
+		tvShow.setLongDescription("Descripcion2");
+		tvShow.setShortDescription("Descripcion1");
 	
+		Mockito.when(tvShowRepository.getById(1L)).thenReturn(tvShow);	
+		TvShowRest tvShowExpect = tvShowService.getTvShowById(1L);
+		
+		assertEquals(tvShowExpect.getName(),"Serie1" );
 	}
+	
 }

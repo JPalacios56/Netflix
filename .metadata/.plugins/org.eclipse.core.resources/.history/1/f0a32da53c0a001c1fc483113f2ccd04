@@ -1,8 +1,0 @@
-package com.everis.d4i.tutorial.json;
-
-public class AwardTvShow {
-
-	private Long id;
-	private String name;
-	
-}

@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CategoryRest implements Serializable {
 
@@ -12,11 +17,11 @@ public class CategoryRest implements Serializable {
 	private Long id;
 	private String name;
 
-	public CategoryRest(long l, String string) {
+	public CategoryRest(long id, String name) {
+		this.id=id;
+		this.name=name;
 	}
 
-	public CategoryRest() {
-	}
 
 	public Long getId() {
 		return id;

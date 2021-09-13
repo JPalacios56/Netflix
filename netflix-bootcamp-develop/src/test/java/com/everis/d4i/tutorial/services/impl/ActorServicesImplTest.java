@@ -41,6 +41,5 @@ class ActorServicesImplTest {
 		assertEquals((long) 1L,actors.get(0).getId());
 		assertEquals("Manuel",actors.get(1).getName());
 	}
-	
-	
+
 }
