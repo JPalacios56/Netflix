@@ -18,7 +18,7 @@ public interface ActorController {
 	
 	NetflixResponse<ActorDataRest> updateActor(Long id,ActorDataRest actorDataRest)throws NetflixException;
 
-	NetflixResponse<ActorRest> deleteActor(Long id) throws NetflixException;
+	NetflixResponse<String> deleteActor(Long id) throws NetflixException;
 
 	NetflixResponse<ActorRest> getChapters(Long id) throws NetflixException;
 	

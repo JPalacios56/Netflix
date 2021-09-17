@@ -1,0 +1,83 @@
+package com.everis.d4i.tutorial.services.impl;
+
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+
+import org.assertj.core.util.Lists;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.everis.d4i.tutorial.entities.Actor;
+import com.everis.d4i.tutorial.entities.Category;
+import com.everis.d4i.tutorial.exceptions.NetflixException;
+import com.everis.d4i.tutorial.json.ActorDataRest;
+import com.everis.d4i.tutorial.repositories.ActorRepository;
+
+@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+class ActorServicesImplTest {
+
+	@Mock
+	private ActorRepository actorRepository;
+	
+	@InjectMocks
+	private ActorServicesImpl actorService;
+	
+	@Test
+	void testGetActors() throws NetflixException {
+
+		// given(inicializar objetos + mokito when)
+		Mockito.when(actorRepository.findAll())
+		.thenReturn(Lists.list(new Actor(1L,"Jose","Palacios",(short)25,"España")
+								,new Actor(2L,"Manuel","Palacios",(short)24,"Francia")));
+		
+		// when(llamar al metodo real)
+		List <ActorDataRest> actors= actorService.getAllActorsData();
+		
+		//then(comprobaciones)
+		assertEquals(1L,actors.get(0).getId());
+		assertEquals("Manuel",actors.get(1).getName());
+	}
+	
+	@Test
+	public void updateActor() throws Exception{
+		
+		
+		Actor actor= new Actor();
+		actor.setId(1L);
+		actor.setName("Jose");
+		actor.setLastName("Palacios");
+		actor.setAge((short)24);
+		actor.setNationality("España");
+		
+		ActorDataRest actorRestUpdate= new ActorDataRest();
+		actorRestUpdate.setId(1L);
+		actorRestUpdate.setName("Manuel");
+		actorRestUpdate.setLastName("Palacios");
+		actorRestUpdate.setAge((short)27);
+		actorRestUpdate.setNationality("España");
+		
+		Mockito.when(actorRepository.save(Mockito.any(Actor.class))).thenReturn(actor);
+		
+		ActorDataRest actorFinal = actorService.updateActor(1L, actorRestUpdate);
+
+		assertThat(actorService.updateActor(1l, actorRest))
+		.isNotEqualTo(actorRest)
+		.isNotNull();
+		
+		assertThat(actorService.updateActor(1L, actorRest).getName())
+		.isNotEmpty()
+		.isNotEqualTo(actorRest.getName())
+		.startsWith("M");
+
+	}
+
+}

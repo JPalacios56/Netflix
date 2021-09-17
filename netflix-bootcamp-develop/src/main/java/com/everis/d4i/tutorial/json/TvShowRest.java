@@ -3,6 +3,7 @@ package com.everis.d4i.tutorial.json;
 import java.io.Serializable;
 import java.time.Year;
 import java.util.List;
+import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -19,6 +20,7 @@ public class TvShowRest implements Serializable {
 	private byte recommendedAge;
 	private String advertising;
 	private List<CategoryRest> categories;
+
 
 	public Long getId() {
 		return id;
@@ -84,6 +86,26 @@ public class TvShowRest implements Serializable {
 		this.categories = categories;
 	}
 	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(advertising, categories, id, longDescription, name, recommendedAge, shortDescription, year);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TvShowRest other = (TvShowRest) obj;
+		return Objects.equals(advertising, other.advertising) && Objects.equals(categories, other.categories)
+				&& Objects.equals(id, other.id) && Objects.equals(longDescription, other.longDescription)
+				&& Objects.equals(name, other.name) && recommendedAge == other.recommendedAge
+				&& Objects.equals(shortDescription, other.shortDescription) && Objects.equals(year, other.year);
+	}
 	
 
 }

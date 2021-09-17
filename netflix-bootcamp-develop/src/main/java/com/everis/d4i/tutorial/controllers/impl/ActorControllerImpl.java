@@ -26,9 +26,11 @@ import com.everis.d4i.tutorial.services.ActorService;
 import com.everis.d4i.tutorial.utils.constants.CommonConstants;
 import com.everis.d4i.tutorial.utils.constants.RestConstants;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
-
+@Api(value = "ActorController", description = "REST API de la entidad Actor")
 @RestController
 @RequestMapping(RestConstants.APPLICATION_NAME + RestConstants.API_VERSION_1 + RestConstants.RESOURCE_ACTOR)
 public class ActorControllerImpl implements ActorController {
@@ -39,6 +41,7 @@ public class ActorControllerImpl implements ActorController {
 
 	
 	@Override
+	@ApiOperation(value = "Devuelve una lista de con todos los actores", response = Iterable.class)
 	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public NetflixResponse<List<ActorDataRest>> getActors() throws NetflixException {
@@ -82,10 +85,10 @@ public class ActorControllerImpl implements ActorController {
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@DeleteMapping(value = RestConstants.RESOURCE_ID,produces = MediaType.APPLICATION_JSON_VALUE)
-	public NetflixResponse<ActorRest> deleteActor(@PathVariable Long id) throws NetflixException {
-		
-		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
-				actorService.deleteActor(id));
+	public NetflixResponse<String> deleteActor(@PathVariable Long id) throws NetflixException {
+		actorService.deleteActor(id);
+		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK
+				);
 	}
 
 

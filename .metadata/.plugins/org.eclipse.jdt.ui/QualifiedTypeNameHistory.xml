@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.responses.NetflixResponse"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.repositories.ChapterRepository"/>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.entities.Chapter"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="org.hibernate.internal.build.AllowSysOut"/>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.json.ChapterRest"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.entities.Season"/>
-    <fullyQualifiedTypeName name="org.modelmapper.internal.util.Assert"/>
     <fullyQualifiedTypeName name="org.springframework.test.context.ContextConfiguration"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.controllers.TvShowController"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.TvShowService"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
     <fullyQualifiedTypeName name="org.mockito.MockitoAnnotations"/>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.ActorService"/>
     <fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringRunner"/>
     <fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
     <fullyQualifiedTypeName name="org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest"/>
@@ -29,8 +20,6 @@
     <fullyQualifiedTypeName name="org.assertj.core.util.Lists"/>
     <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Before"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.repositories.ActorRepository"/>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.impl.ActorServicesImpl"/>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.entities.Actor"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="org.junit.experimental.categories.Category"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.entities.Category"/>
@@ -46,18 +35,29 @@
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.repositories.TvShowRepository"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.json.TvShowRest"/>
     <fullyQualifiedTypeName name="lombok.Getter"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
-    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.CategoryService"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.impl.CategoryServiceImpl"/>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.json.ActorRest"/>
     <fullyQualifiedTypeName name="org.mockito.Mockito"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.json.ActorDataRest"/>
     <fullyQualifiedTypeName name="org.springframework.test.web.servlet.RequestBuilder"/>
     <fullyQualifiedTypeName name="org.springframework.test.web.servlet.request.MockMvcRequestBuilders"/>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.utils.constants.RestConstants"/>
-    <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.json.CategoryRest"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.json.ActorRest"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.entities.Actor"/>
+    <fullyQualifiedTypeName name="org.modelmapper.internal.util.Assert"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="ch.qos.logback.core.net.ObjectWriter"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectWriter"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.utils.constants.RestConstants"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.impl.ActorServicesImpl"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.ActorService"/>
+    <fullyQualifiedTypeName name="java.nio.charset.Charset"/>
+    <fullyQualifiedTypeName name="io.swagger.annotations.Api"/>
+    <fullyQualifiedTypeName name="io.swagger.annotations.ApiOperation"/>
 </qualifiedTypeNameHistroy>

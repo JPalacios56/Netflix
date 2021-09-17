@@ -1,6 +1,7 @@
 package com.everis.d4i.tutorial.services.impl;
 
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -27,9 +28,7 @@ class TvShowServiceImplTest {
 	
 	@InjectMocks
 	TvShowServiceImpl tvShowService;
-	
-
-	
+		
 
 	@Test
 	void getTvShowById() throws NetflixException {
@@ -41,8 +40,8 @@ class TvShowServiceImplTest {
 	
 		Mockito.when(tvShowRepository.getById(1L)).thenReturn(tvShow);	
 		TvShowRest tvShowExpect = tvShowService.getTvShowById(1L);
+		assertThat(tvShowExpect.getName()).isEqualTo(tvShow.getName());
 		
-		assertEquals(tvShowExpect.getName(),"Serie1" );
 	}
 	
 }

@@ -1,0 +1,141 @@
+package com.everis.d4i.tutorial.controllers.impl;
+
+
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.RequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import com.everis.d4i.tutorial.json.ActorDataRest;
+import com.everis.d4i.tutorial.services.ActorService;
+import com.everis.d4i.tutorial.utils.constants.RestConstants;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+@ExtendWith(MockitoExtension.class)
+@AutoConfigureMockMvc
+@SpringBootTest
+class ActorControllerImplTest {
+
+	
+	@Autowired
+	private MockMvc mockMvc;
+	
+	@MockBean
+	private ActorService actorService;
+	
+	private final String REQ_SUCCESS = "\"status\": \"Success\"," + "\"code\": \"200 OK\"," + "\"message\": \"OK\",";
+
+	@Test
+    public void getAllActorsTest() throws Exception {
+
+        List<ActorDataRest> salida = new ArrayList<>();
+        salida.add(new ActorDataRest(1L, "Actor1", "Actor1S",(short)25,"España"));
+        salida.add(new ActorDataRest(2L, "Actor2", "Actor2S",(short)25,"España"));
+
+        Mockito.when(actorService.getAllActorsData()).thenReturn(salida);
+
+        final RequestBuilder request = MockMvcRequestBuilders
+                .get(RestConstants.APPLICATION_NAME + RestConstants.API_VERSION_1 + RestConstants.RESOURCE_ACTOR)
+                .accept(MediaType.APPLICATION_JSON);
+
+        mockMvc.perform(request).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().json("{" + REQ_SUCCESS + "\"data\": [" + "{" + "\"id\": 1,"
+                        + "\"name\": \"Actor1\"," + "\"lastName\": \"Actor1S\"" + "}," + "{" + "\"id\": 2,"
+                        + "\"name\": \"Actor2\"," + "\"lastName\": \"Actor2S\"" + "}" + "]}"))
+                .andReturn();
+ 
+        assertThat(actorService.getAllActorsData())
+        .isNotEmpty()
+        .hasSize(2)
+        .contains(salida.get(1))
+        .endsWith(salida.get(1));
+             
+        assertThat(actorService.getAllActorsData().get(0).getName()).isEqualTo("Actor1");
+
+    }
+	
+	@Test
+	public void addActorTest() throws Exception{
+		
+		ActorDataRest actorRest = new ActorDataRest();
+		actorRest.setId(1L);
+		actorRest.setName("Jose");
+		actorRest.setLastName("Palacios");
+		actorRest.setAge((short)24);
+		actorRest.setNationality("España");
+			
+		Mockito.when(actorService.addActor(actorRest)).thenReturn(actorRest);
+		
+		 ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+	        String requestJson = ow.writeValueAsString(actorRest);
+		
+		final RequestBuilder request = MockMvcRequestBuilders
+                .post(RestConstants.APPLICATION_NAME + RestConstants.API_VERSION_1 + RestConstants.RESOURCE_ACTOR)
+                .contentType(MediaType.APPLICATION_JSON_UTF8).content(requestJson).accept(MediaType.APPLICATION_JSON);
+
+ 
+
+        mockMvc.perform(request).andDo(print()).andExpect(status().isOk()).andExpect(content().json("{" + REQ_SUCCESS
+                + "\"data\": " + "{" 
+        		+ "\"id\": 1," 
+                + "\"name\": \"Jose\","
+        		+ "\"lastName\": \"Palacios\","
+        		+ "\"age\": 24," 
+        		+ "\"nationality\": \"España\""+ "}" + "}"))
+                .andReturn();
+
+	}
+	
+
+	@Test
+	public void deleteActor() throws Exception{
+
+		Mockito.when(actorService.deleteActor(1L)).thenReturn("Actor eliminado");
+
+		
+		final RequestBuilder request = MockMvcRequestBuilders
+                .delete(RestConstants.APPLICATION_NAME + RestConstants.API_VERSION_1 + RestConstants.RESOURCE_ACTOR + RestConstants.RESOURCE_ID,1L);
+		
+		mockMvc.perform(request)
+        .andExpect(status().isOk());
+		
+		}
+	
+	@Test
+	public void updateActor() throws Exception{
+		
+		ActorDataRest actorRest = new ActorDataRest();
+		actorRest.setId(1L);
+		actorRest.setName("Jose");
+		actorRest.setLastName("Palacios");
+		actorRest.setAge((short)24);
+		actorRest.setNationality("España");
+		
+		Mockito.when(actorService.updateActor(1L,actorRest)).thenReturn(actorRest);
+
+		final RequestBuilder request = MockMvcRequestBuilders
+				.put(RestConstants.APPLICATION_NAME + RestConstants.API_VERSION_1 + RestConstants.RESOURCE_ACTOR + RestConstants.RESOURCE_ID,1L);
+
+
+	
+	}
+
+}

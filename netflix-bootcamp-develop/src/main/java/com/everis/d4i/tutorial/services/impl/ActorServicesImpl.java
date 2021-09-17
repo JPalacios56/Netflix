@@ -26,41 +26,43 @@ import com.everis.d4i.tutorial.utils.constants.ExceptionConstants;
 
 @Service
 public class ActorServicesImpl implements ActorService {
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(CategoryServiceImpl.class);
 
-	
 	@Autowired
 	ActorRepository actorRepository;
-	
 
 	private ModelMapper modelMapper = new ModelMapper();
 
 	@Override
 	public List<ActorDataRest> getAllActorsData() throws NetflixException {
-		
-		List<ActorDataRest>actorDataRest= new ArrayList<ActorDataRest>();
-		List<Actor> actors=actorRepository.findAll();
-		
-		for(int i=0; i<actors.size();i++) {
-			ActorDataRest aux= new ActorDataRest();
-			
-			aux.setId(actors.get(i).getId());
-			aux.setName(actors.get(i).getName());
-			aux.setLastName(actors.get(i).getLastName());
-			aux.setAge(actors.get(i).getAge());
-			aux.setNationality(actors.get(i).getNationality());
-		
+
+		List<ActorDataRest> actorDataRest = new ArrayList<ActorDataRest>();
+		List<Actor> actors = actorRepository.findAll();
+
+		for (Actor actor : actors) {
+			ActorDataRest aux = new ActorDataRest();
+			aux.setId(actor.getId());
+			aux.setName(actor.getName());
+			aux.setLastName(actor.getLastName());
+			aux.setAge(actor.getAge());
+			aux.setNationality(actor.getNationality());
 			actorDataRest.add(aux);
 		}
+//		actors.stream().map(actor-> {ActorDataRest aux = new ActorDataRest();
+//			aux.setId(actor.getId());
+//			aux.setName(actor.getName());
+//			aux.setLastName(actor.getLastName());
+//			aux.setAge(actor.getAge());
+//			aux.setNationality(actor.getNationality());
+//			return aux;}).toList();
 
-		
 		return actorDataRest;
 	}
-	
+
 	@Override
 	public ActorRest getActor(Long id) throws NetflixException {
-
+		
 		try {
 			return modelMapper.map(actorRepository.getById(id), ActorRest.class);
 		} catch (EntityNotFoundException entityNotFoundException) {
@@ -70,88 +72,79 @@ public class ActorServicesImpl implements ActorService {
 
 	@Override
 	public ActorDataRest addActor(final ActorDataRest actorDataRest) throws NetflixException {
-			
-			Actor actor= new Actor();
-			actor.setName(actorDataRest.getName());
-			actor.setLastName(actorDataRest.getLastName());
-			actor.setAge(actorDataRest.getAge());
-			actor.setNationality(actorDataRest.getNationality());
-			
-			try {
-				actorRepository.save(actor);
-			} catch (final Exception e) {
-				LOGGER.error(ExceptionConstants.INTERNAL_SERVER_ERROR, e);
-				throw new InternalServerErrorException(ExceptionConstants.INTERNAL_SERVER_ERROR);
-			}
-			
-			
+
+		Actor actor = new Actor();
+		actor.setName(actorDataRest.getName());
+		actor.setLastName(actorDataRest.getLastName());
+		actor.setAge(actorDataRest.getAge());
+		actor.setNationality(actorDataRest.getNationality());
+
+		try {
+			actorRepository.save(actor);
+		} catch (final Exception e) {
+			LOGGER.error(ExceptionConstants.INTERNAL_SERVER_ERROR, e);
+			throw new InternalServerErrorException(ExceptionConstants.INTERNAL_SERVER_ERROR);
+		}
+
 		return modelMapper.map(actor, ActorDataRest.class);
 
 	}
 
 	@Override
 	public ActorDataRest updateActor(Long id, final ActorDataRest actorDataRest) throws NetflixException {
-		
-		
-				
-			Actor actor= actorRepository.getById(id);
-			actor.setName(actorDataRest.getName());
-			actor.setLastName(actorDataRest.getLastName());
-			actor.setAge(actorDataRest.getAge());
-			actor.setNationality(actorDataRest.getNationality());
-			
-			try {
-				actorRepository.save(actor);
-			} catch (final Exception e) {
-				LOGGER.error(ExceptionConstants.INTERNAL_SERVER_ERROR, e);
-				throw new InternalServerErrorException(ExceptionConstants.INTERNAL_SERVER_ERROR);
-			}
-			
-			
+
+		Actor actor = actorRepository.getById(id);
+		actor.setName(actorDataRest.getName());
+		actor.setLastName(actorDataRest.getLastName());
+		actor.setAge(actorDataRest.getAge());
+		actor.setNationality(actorDataRest.getNationality());
+
+		try {
+			actorRepository.save(actor);
+		} catch (final Exception e) {
+			LOGGER.error(ExceptionConstants.INTERNAL_SERVER_ERROR, e);
+			throw new InternalServerErrorException(ExceptionConstants.INTERNAL_SERVER_ERROR);
+		}
+
 		return modelMapper.map(actor, ActorDataRest.class);
 	}
 
 	@Override
-	public ActorRest deleteActor(Long id) throws NetflixException {
-			
+	public String deleteActor(Long id) throws NetflixException {
+
 		try {
 			actorRepository.deleteById(id);
 		} catch (final Exception e) {
 			LOGGER.error(ExceptionConstants.INTERNAL_SERVER_ERROR, e);
 			throw new InternalServerErrorException(ExceptionConstants.INTERNAL_SERVER_ERROR);
 		}
-		
-		return null;
+
+		return "Actor eliminado";
 	}
 
 	@Override
 	public ActorRest getChapters(Long id) throws NetflixException {
-	
-		try {		
-			List <ChapterRest> chapterRests = new ArrayList<>(); 
-			ActorRest actorRest= new ActorRest();
-			
+
+		try {
+			List<ChapterRest> chapterRests = new ArrayList<>();
+			ActorRest actorRest = new ActorRest();
+
 			Actor actor = actorRepository.getById(id);
 			List<Chapter> chapters = actor.getChapters();
-			
-			for(int i = 0; i<chapters.size(); i++) {
-			
-			ChapterRest chapterRest = modelMapper.map(chapters.get(i), ChapterRest.class);
-			chapterRests.add(chapterRest);
-				
-			}	
+
+			for (int i = 0; i < chapters.size(); i++) {
+
+				ChapterRest chapterRest = modelMapper.map(chapters.get(i), ChapterRest.class);
+				chapterRests.add(chapterRest);
+
+			}
 			actorRest.setChapters(chapterRests);
 			return actorRest;
-			
+
 		} catch (final Exception e) {
 			LOGGER.error(ExceptionConstants.INTERNAL_SERVER_ERROR, e);
 			throw new InternalServerErrorException(ExceptionConstants.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
-	
 
-	
-
-	
 }
