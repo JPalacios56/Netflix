@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="ActorControllerImplTest.getAllActorsTest" project="netflix-bootcamp-develop" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest" time="0.244" displayname="ActorControllerImplTest" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest]">
-    <testcase name="getAllActorsTest" classname="com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest" time="0.244" displayname="getAllActorsTest()" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest]/[method:getAllActorsTest()]"/>
-  </testsuite>
-</testrun>

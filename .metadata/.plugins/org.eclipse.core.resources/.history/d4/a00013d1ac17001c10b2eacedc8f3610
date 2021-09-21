@@ -140,6 +140,7 @@ class ActorControllerImplTest {
 	                .andExpect(content().json("{\r\n" + "  \"status\": \"ERROR\",\r\n" + "  \"code\": \"404\",\r\n"
 	                        + "  \"message\": \"No existe el actor\",\r\n" + "  \"data\": []\r\n"
 	                        + "}"));
+
 	    }
 
 }

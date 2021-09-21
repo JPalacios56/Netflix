@@ -43,7 +43,8 @@ class ActorServicesImplTest {
 		List<ActorDataRest> actors = actorService.getAllActorsData();
 
 		// then(comprobaciones)
-		assertThat(actors.get(0).getId()).isEqualTo(1);	
+		assertEquals(1L, actors.get(0).getId());
+		assertEquals("Manuel", actors.get(1).getName());
 	}
 
 	@Test

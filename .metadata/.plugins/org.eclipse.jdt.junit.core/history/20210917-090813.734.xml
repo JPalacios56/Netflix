@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="ActorControllerImplTest" project="netflix-bootcamp-develop" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest" time="0.585" displayname="ActorControllerImplTest" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest]">
-    <testcase name="deleteActor" classname="com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest" time="0.159" displayname="deleteActor()" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest]/[method:deleteActor()]"/>
-    <testcase name="updateActor" classname="com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest" time="0.188" displayname="updateActor()" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest]/[method:updateActor()]"/>
-    <testcase name="addActorTest" classname="com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest" time="0.045" displayname="addActorTest()" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest]/[method:addActorTest()]"/>
-    <testcase name="getAllActorsTest" classname="com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest" time="0.187" displayname="getAllActorsTest()" uniqueid="[engine:junit-jupiter]/[class:com.everis.d4i.tutorial.controllers.impl.ActorControllerImplTest]/[method:getAllActorsTest()]"/>
-  </testsuite>
-</testrun>

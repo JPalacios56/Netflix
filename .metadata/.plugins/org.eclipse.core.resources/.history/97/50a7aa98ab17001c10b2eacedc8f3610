@@ -134,12 +134,13 @@ class ActorControllerImplTest {
 
 	        Mockito.when(actorService.getActor(id)).thenThrow(new NotFoundException(ExceptionConstants.MESSAGE_INEXISTENT_ACTOR));
 
-	        RequestBuilder request = MockMvcRequestBuilders.get("/netflix/v1/actor/" + id).param("id", id.toString());
+	        RequestBuilder request = MockMvcRequestBuilders.get("/netflix/v1/actors/" + id).param("id", id.toString());
 
 	        mockMvc.perform(request).andDo(print()).andExpect(status().isNotFound())
 	                .andExpect(content().json("{\r\n" + "  \"status\": \"ERROR\",\r\n" + "  \"code\": \"404\",\r\n"
-	                        + "  \"message\": \"No existe el actor\",\r\n" + "  \"data\": []\r\n"
+	                        + "  \"message\": \"ACTOR INEXISTENT - Actor does not exist\",\r\n" + "  \"data\": []\r\n"
 	                        + "}"));
+
 	    }
 
 }

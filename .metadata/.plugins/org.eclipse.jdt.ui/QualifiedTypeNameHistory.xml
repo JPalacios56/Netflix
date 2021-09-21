@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.entities.Season"/>
-    <fullyQualifiedTypeName name="org.springframework.test.context.ContextConfiguration"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.controllers.TvShowController"/>
     <fullyQualifiedTypeName name="com.everis.d4i.tutorial.services.TvShowService"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="java.nio.charset.Charset"/>
     <fullyQualifiedTypeName name="io.swagger.annotations.Api"/>
     <fullyQualifiedTypeName name="io.swagger.annotations.ApiOperation"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.utils.constants.ExceptionConstants"/>
+    <fullyQualifiedTypeName name="com.everis.d4i.tutorial.exceptions.NotFoundException"/>
 </qualifiedTypeNameHistroy>
