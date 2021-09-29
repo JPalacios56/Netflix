@@ -1,0 +1,33 @@
+version: '2'
+ 
+# Names our volume
+volumes:
+  database-volume:
+services:
+    docker-netflix:
+        image: mysql:latest
+        environment:
+            - MYSQL_DATABASE=netflix
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+        ports:
+            - 11000:3306
+        command: "mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8 --explicit_defaults_for_timestamp"
+        volumes:
+            - database-volume:/var/lib/mysql
+
+    netflix_app:
+        depends_on:
+            - docker-netflix
+        command: ''
+        image: netflix_tag3
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:mysql://docker-netflix:3306/netflix?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+            - SPRING_DATASOURCE_USERNAME=root
+            - SPRING_DATASOURCE_PASSWORD=root
+        ports:
+            - 8088:8088
+        expose:
+            - 8088
+        logging:
+            driver: 'json-file'
